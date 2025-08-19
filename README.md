@@ -73,7 +73,11 @@ Acesse o link para testar 👉 https://ReiBrito.github.io/IdeaVault/
 
 ## 🖼️ Imagens
 
-![Tela inicial](img/print.png)
+Tema Claro 
+![IdeaVault](img/print.png)
+
+Tema Dark 
+![IdeaVault](img/print-dark.png)
 
 ---
 
