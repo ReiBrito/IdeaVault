@@ -1,0 +1,260 @@
+/* Reset e variáveis */
+:root {
+  --bg-primary: #f9f9fb;
+  --bg-secondary: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --accent: #6c63ff;
+  --accent-light: #e6e4ff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border: #e0e0e0;
+  --danger: #e74c3c;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #b0b0b0;
+  --accent: #8a7cff;
+  --accent-light: #3a3580;
+  --border: #333;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.header h1 span {
+  color: var(--text-primary);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.btn-icon:hover {
+  background: var(--accent-light);
+}
+
+/* Seção de entrada */
+.input-section {
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+#idea-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  resize: none;
+  transition: border 0.2s;
+}
+
+#idea-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+#add-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#add-btn:hover {
+  background-color: #5a52d5;
+}
+
+/* Filtro */
+.filter-section {
+  padding: 0 1rem 1rem;
+}
+
+#filter-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+#filter-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Lista de ideias */
+.ideas-list {
+  flex: 1;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.idea-card {
+  background-color: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+  transition: transform 0.2s;
+}
+
+.idea-card:hover {
+  transform: translateY(-2px);
+}
+
+.idea-card .content {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.idea-card .date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Botão de excluir */
+.idea-card button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--danger);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: scale(0.8);
+}
+
+.idea-card:hover button {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.idea-card.removing {
+  animation: fadeOut 0.3s forwards;
+}
+
+/* Rodapé */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.4rem;
+  }
+  .input-section, .filter-section, .ideas-list {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+}
+
+/* Nenhum item */
+.no-ideas {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 2rem 1rem;
+}

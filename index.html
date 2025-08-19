@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeaVault</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- Habilitar instalação -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#6c63ff">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- Carrega o Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('SW registrado: ', reg))
+        .catch(err => console.log('Erro ao registrar SW: ', err));
+    });
+  }
+</script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1><span>Idea</span>Vault</h1>
+      <button id="theme-toggle" class="btn-icon" aria-label="Alternar tema">
+        <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </header>
+
+    <main class="main">
+      <section class="input-section">
+        <textarea id="idea-input" placeholder="Escreva sua ideia aqui..." rows="3"></textarea>
+        <button id="add-btn" class="btn-primary">Adicionar Ideia</button>
+      </section>
+
+      <section class="filter-section">
+        <input type="text" id="filter-input" placeholder="Filtrar ideias..." />
+      </section>
+
+      <section class="ideas-list" id="ideas-list">
+        <!-- Ideias serão carregadas aqui via JS -->
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>IdeaVault &copy; 2025 — Salve suas ideias em qualquer lugar</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
