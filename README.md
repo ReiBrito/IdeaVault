@@ -96,4 +96,4 @@ Desenvolvido por **[Reinaldo Brito](https://github.com/ReiBrito)** 💙
 Sinta-se livre para contribuir ou adaptar ao seu uso!
 
 ## Licença
-Este projeto está licenciado sob a licença MIT - veja o arquivo [IdeaVault](LICENSE.md) para mais detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
